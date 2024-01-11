@@ -1,12 +1,9 @@
 package ru.netology.domain;
+
 public class Poster {
 
     private Films[] films = new Films[0];
 
-    public void setFilms(Films[] films){
-        this.films = films;
-
-    }
 
     public void add(Films film) {
         Films[] tmp = new Films[films.length + 1];
@@ -35,7 +32,7 @@ public class Poster {
     }
 
     public Films[] findLast(int quantity) {
-        int resultLength = quantity;
+        int resultLength = Math.min(quantity, findAll().length);
         Films[] lastFilms = new Films[resultLength];
         Films[] all = findAll();
         for (int i = 0; i < lastFilms.length; i++) {
