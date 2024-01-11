@@ -42,4 +42,13 @@ public class Poster {
         }
         return lastFilms;
     }
+
+    public Poster() {
+
+    }
+
+    public Poster(int quantity) {
+        this();
+        Films[] findLast = findLast(quantity);
+    }
 }

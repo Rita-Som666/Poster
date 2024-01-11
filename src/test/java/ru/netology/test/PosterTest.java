@@ -15,6 +15,7 @@ public class PosterTest {
     Films film6 = new Films("Тролли. Мировой тур", "мультфильм");
     Films film7 = new Films("Номер один", "комедия");
     Poster post = new Poster();
+    Poster post1 = new Poster(7);
 
     @Test
     public void shouldAddFilms() {
@@ -57,7 +58,7 @@ public class PosterTest {
         post.add(film6);
         post.add(film7);
         Films[] expected = {film7, film6, film5};
-        Films[] actual = post.findLast(3);
+        Films[] actual = post1.
         Assertions.assertArrayEquals(expected, actual);
 
     }
