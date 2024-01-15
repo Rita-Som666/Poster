@@ -15,7 +15,10 @@ public class PosterTest {
     Films film6 = new Films("Тролли. Мировой тур", "мультфильм");
     Films film7 = new Films("Номер один", "комедия");
     Poster post = new Poster();
-    Poster post1 = new Poster(7);
+    Poster post1 = new Poster(3);
+    Poster post2 = new Poster(7);
+    Poster post3 = new Poster(10);
+
 
     @Test
     public void shouldAddFilms() {
@@ -50,44 +53,49 @@ public class PosterTest {
 
     @Test
     public void shouldFind3LastFilms() {
-        post.add(film1);
-        post.add(film2);
-        post.add(film3);
-        post.add(film4);
-        post.add(film5);
-        post.add(film6);
-        post.add(film7);
+        post1.add(film1);
+        post1.add(film2);
+        post1.add(film3);
+        post1.add(film4);
+        post1.add(film5);
+        post1.add(film6);
+        post1.add(film7);
         Films[] expected = {film7, film6, film5};
-        Films[] actual = post1.
-        Assertions.assertArrayEquals(expected, actual);
-
-    }
-
-    @Test
-    public void notShouldReturnMoreMax() {
-        post.add(film1);
-        post.add(film2);
-        post.add(film3);
-        post.add(film4);
-        post.add(film5);
-        post.add(film6);
-        post.add(film7);
-        Films[] expected = {film7, film6, film5, film4, film3, film2, film1};
-        Films[] actual = post.findLast(10);
+        Films[] actual = post1.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void ShouldFind7LastFilms() {
-        post.add(film1);
-        post.add(film2);
-        post.add(film3);
-        post.add(film4);
-        post.add(film5);
-        post.add(film6);
-        post.add(film7);
+    public void shouldFind7LastFilms() {
+        post2.add(film1);
+        post2.add(film2);
+        post2.add(film3);
+        post2.add(film4);
+        post2.add(film5);
+        post2.add(film6);
+        post2.add(film7);
         Films[] expected = {film7, film6, film5, film4, film3, film2, film1};
-        Films[] actual = post.findLast(7);
+        Films[] actual = post2.findLast();
         Assertions.assertArrayEquals(expected, actual);
+
+
     }
+
+    @Test
+    public void notShouldFindMoreMax() {
+        post3.add(film1);
+        post3.add(film2);
+        post3.add(film3);
+        post3.add(film4);
+        post3.add(film5);
+        post3.add(film6);
+        post3.add(film7);
+        Films[] expected = {film7, film6, film5, film4, film3, film2, film1};
+        Films[] actual = post3.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+
+
+    }
+
+
 }

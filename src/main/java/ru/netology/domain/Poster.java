@@ -3,6 +3,14 @@ package ru.netology.domain;
 public class Poster {
 
     private Films[] films = new Films[0];
+    private int[] quantityOfFindLast = new int[5];
+
+    public Poster(int quantity) {
+        quantityOfFindLast = new int[quantity];
+    }
+
+    public Poster() {
+    }
 
 
     public void add(Films film) {
@@ -19,36 +27,13 @@ public class Poster {
     }
 
     public Films[] findLast() {
-        Films[] lastFilms = new Films[5];
+        Films[] lastFilms = new Films[Math.min(quantityOfFindLast.length, findAll().length)];
         Films[] all = findAll();
         for (int i = 0; i < lastFilms.length; i++) {
             lastFilms[i] = all[all.length - 1 - i];
-
-
-        }
-        return lastFilms;
-
-
-    }
-
-    public Films[] findLast(int quantity) {
-        int resultLength = Math.min(quantity, findAll().length);
-        Films[] lastFilms = new Films[resultLength];
-        Films[] all = findAll();
-        for (int i = 0; i < lastFilms.length; i++) {
-            lastFilms[i] = all[all.length - 1 - i];
-
-
         }
         return lastFilms;
     }
 
-    public Poster() {
 
-    }
-
-    public Poster(int quantity) {
-        this();
-        Films[] findLast = findLast(quantity);
-    }
 }
